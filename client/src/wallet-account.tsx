@@ -48,7 +48,7 @@ export function WalletAccount() {
 
     return (
         <div className="mb-6">
-            <h2 className="text-black">Connect Wallet</h2>
+            {/* <h2 className="text-black">Connect Wallet</h2> */}
             <div style={{ display: "flex", gap: "1rem" }}>
                 {}
                 {connectors.map((connector) => (
@@ -58,8 +58,8 @@ export function WalletAccount() {
                         disabled={!connector.available()}
                         className="text-black border border-black p-3"
                     >
-                        {connector.name}
-                        {isWalletConnecting(connector.id) && "Connecting"}
+                        {!isWalletConnecting(connector.id) && "Connect Controller "}
+                        {isWalletConnecting(connector.id) && " Connecting..."}
                     </button>
                 ))}
             </div>

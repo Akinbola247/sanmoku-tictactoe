@@ -9,8 +9,7 @@ interface SymbolSelectProps {
 export const SymbolSelect = ({ gameId, setView, selectSymbol }: SymbolSelectProps) => {
   return (
     <div className="bg-white rounded-lg shadow-md p-6 w-full max-w-md">
-      <h2 className="text-xl font-semibold mb-2 text-center">Game ID: {gameId}</h2>
-      <p className="text-center text-gray-600 mb-6">Share this ID with your friend</p>
+     
       
       <h3 className="text-lg font-medium mb-4 text-center">Choose your symbol</h3>
       

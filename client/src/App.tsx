@@ -202,7 +202,10 @@ function App() {
     return String.fromCharCode(decimal);
   }
     const createGame = useCallback(async () => {
-        // const gameId = Math.random().toString(36).substring(2, 8).toUpperCase();
+      setGameState(prev => ({
+        ...prev,
+        initialGameState
+      }));  
 
         setView('symbol-select');
       }, []);
@@ -348,15 +351,6 @@ function App() {
       }, []);
     
       const restartGame = useCallback(async () => {
-        const isDraw = gameState.board.every(cell => cell !== null);
-      const canRestart = gameState.winner !== null || isDraw;
-    
-        if (!canRestart) {
-          alert("Cannot restart - game is still in progress")
-            console.log("Cannot restart - game is still in progress");
-            return;
-        }
-
         if (!gameState.gameId) {
             console.error("Game ID is not set yet");
             return;
@@ -373,7 +367,7 @@ function App() {
             setGameState(prev => ({
               ...prev,
               board: Array(9).fill(null),
-              currentPlayer: 'X',
+              // currentPlayer: 'X',
               winner: null,
               gameOver: false
             }));
@@ -430,6 +424,8 @@ function App() {
               <div>
                 <span className="font-medium">Game ID:</span>
                 <span className="ml-2 font-mono">{gameState.gameId}</span>
+                <p className="text-center text-gray-600">Share this ID with your friend</p>
+
               </div>
               <div>
                 <span className="font-medium">You are:</span>
